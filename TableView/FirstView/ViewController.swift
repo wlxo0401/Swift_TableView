@@ -12,9 +12,6 @@ class ViewController: UIViewController {
     var persons = [Person]()
 
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var ageTextField: UITextField!
-    @IBOutlet weak var cityTextField: UITextField!
-    
     @IBOutlet weak var mainTableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,10 +25,8 @@ class ViewController: UIViewController {
     @IBAction func registerBtn(_ sender: Any) {
         
         guard let name = nameTextField.text else { return }
-        guard let age = ageTextField.text else { return }
-        guard let city = cityTextField.text else { return }
         
-        let person = Person(name: name, age: age, city: city)
+        let person = Person(name: name)
         
         persons.append(person)
         mainTableView.reloadData()
@@ -55,15 +50,12 @@ extension ViewController: UITableViewDataSource {
 //        cell.detailTextLabel?.text = indexPath.description
 //        cell.imageView?.image = UIImage(named: "g90")
         
-        let cell = mainTableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! MyTableViewCell
+        let cell = mainTableView.dequeueReusableCell(withIdentifier: "nameCell", for: indexPath) as! MyTableViewCell
         let person = persons[indexPath.row]
         cell.nameLabel.text = person.name
-        cell.ageLabel.text = person.age
-        cell.cityLabel.text = person.city
         return cell
     }
 }
 
 extension ViewController: UITableViewDelegate {
-     
 }

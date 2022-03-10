@@ -1,17 +1,16 @@
 //
-//  MyTableViewCell.swift
+//  CityTableViewCell.swift
 //  TableView
 //
-//  Created by 김지태 on 2022/03/09.
+//  Created by 김지태 on 2022/03/10.
 //
 
 import UIKit
 
-class MyTableViewCell: UITableViewCell {
+class CityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
